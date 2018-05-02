@@ -26,9 +26,10 @@ function Speech() {
  * @param saying The raw text to insert into the speak tag.
  * @returns {Speech}
  */
-Speech.prototype.say = function (saying) {
+Speech.prototype.say = function (saying, lang) {
     this._present(saying, "The saying provided to Speech#saying(..) was null or undefined.");
-    this._elements.push(this._escape(saying));
+    lang = lang || "en-US";
+    this._elements.push(`<lang xml:lang="${lang}">${this._escape(saying)}</lang>`);
     return this;
 };
 
@@ -38,9 +39,10 @@ Speech.prototype.say = function (saying) {
  * @param paragraph The paragraph of text to insert.
  * @returns {Speech}
  */
-Speech.prototype.paragraph = function (paragraph) {
+Speech.prototype.paragraph = function (paragraph, lang) {
     this._present(paragraph, "The paragraph provided to Speech#paragraph(..) was null or undefined.");
-    this._elements.push("<p>" + this._escape(paragraph) + "</p>");
+    lang = lang || "en-US";
+    this._elements.push(`<p xml:lang="${lang}">${this._escape(paragraph)}</p>`);
     return this;
 };
 
@@ -50,9 +52,10 @@ Speech.prototype.paragraph = function (paragraph) {
  * @param saying The sentence to insert.
  * @returns {Speech}
  */
-Speech.prototype.sentence = function (saying) {
+Speech.prototype.sentence = function (saying, lang) {
     this._present(saying, "The sentence provided to Speech#sentence(..) was null or undefined.");
-    this._elements.push("<s>" + this._escape(saying) + "</s>");
+    lang = lang || "en-US";
+    this._elements.push(`<s xml:lang="${lang}">${this._escape(paragraph)}</s>`);
     return this;
 };
 
