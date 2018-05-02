@@ -29,7 +29,7 @@ function Speech() {
 Speech.prototype.say = function (saying, lang) {
     this._present(saying, "The saying provided to Speech#saying(..) was null or undefined.");
     lang = lang || "en-US";
-    this._elements.push(`<lang xml:lang="${lang}">${this._escape(saying)}</lang>`);
+    this._elements.push(`<lang xml:lang='${lang}'>${this._escape(saying)}</lang>`);
     return this;
 };
 
@@ -42,7 +42,7 @@ Speech.prototype.say = function (saying, lang) {
 Speech.prototype.paragraph = function (paragraph, lang) {
     this._present(paragraph, "The paragraph provided to Speech#paragraph(..) was null or undefined.");
     lang = lang || "en-US";
-    this._elements.push(`<p xml:lang="${lang}">${this._escape(paragraph)}</p>`);
+    this._elements.push(`<p xml:lang='${lang}'>${this._escape(paragraph)}</p>`);
     return this;
 };
 
@@ -55,7 +55,7 @@ Speech.prototype.paragraph = function (paragraph, lang) {
 Speech.prototype.sentence = function (saying, lang) {
     this._present(saying, "The sentence provided to Speech#sentence(..) was null or undefined.");
     lang = lang || "en-US";
-    this._elements.push(`<s xml:lang="${lang}">${this._escape(paragraph)}</s>`);
+    this._elements.push(`<s xml:lang='${lang}'>${this._escape(paragraph)}</s>`);
     return this;
 };
 
